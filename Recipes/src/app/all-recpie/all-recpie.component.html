@@ -1,0 +1,24 @@
+<div id="both">
+    <div id="all">
+        <div *ngFor="let x of newArr" class="one">
+            <app-small-recpie [myRecpie]="x"></app-small-recpie>
+            <div *ngIf="localUser(x.UserCode)">
+                <input value="מחק" type="button" (click)="deleteRecipe(x.CodeRecipe)">
+            </div>
+        </div>
+    </div>
+    <div id="serch">
+        <select [(ngModel)]="kategoryChoise" name="k" id="katgory">
+            <option *ngFor="let x of kategory" [value]="x.Code">{{x.Name}}</option>
+        </select>
+        <br>
+        <select [(ngModel)]="labelChoise" name="l" id="label">
+            <option *ngFor="let y of label" [value]="y.Code">{{y.Name}}</option>
+        </select>
+        <br>
+        <input type="text" placeholder="זמן הכנה" [(ngModel)]="duringChoise" name="d" id="choise">
+        <br>
+        <input type="image" src="../../assets/search-bar.png" (click)="serch()" id="find">
+        <!-- <input type="button" value="חפש" (click)="serch()" id="find"> -->
+    </div>
+</div>

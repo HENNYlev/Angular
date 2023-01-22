@@ -1,0 +1,71 @@
+<div *ngIf="okey()" >
+<a routerLink="/deteilse/{{myRecpie.CodeRecipe}}">
+<div class="card" style="width: 18rem;">
+  <img src={{myRecpie.UrlImg}} />
+  <div class="card-body">
+    <h5 class="card-title" id="head">{{myRecpie.NameRecipe}} </h5>
+    <p class="card-text">{{myRecpie.OrderTime|time}}</p>
+    <div id="allStars">
+      <img *ngIf="myRecpie.Label>=1" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img1">
+      <img *ngIf="myRecpie.Label>=2" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img2">
+      <img *ngIf="myRecpie.Label>=3" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img3">
+      <img *ngIf="myRecpie.Label>=4" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img4">
+      <img *ngIf="myRecpie.Label>=5" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img5">
+    </div>
+  </div>
+  <div>
+    <img class="ikon" src="../../assets/ikons/meet.jpg" *ngIf="myRecpie.CodeKatgory==1;else n2" />
+    <ng-template #n2>
+      <img class="ikon" src="../../assets/ikons/fish.jpg" *ngIf="myRecpie.CodeKatgory==2;else n3" />
+      <ng-template #n3>
+        <img class="ikon" src="../../assets/ikons/child.jpg" *ngIf="myRecpie.CodeKatgory==3;else n4" />
+        <ng-template #n4>
+          <img class="ikon" src="../../assets/ikons/ten.jpg" *ngIf="myRecpie.CodeKatgory==4;else n5" />
+          <ng-template #n5>
+            <img class="ikon" src="../../assets/ikons/cake.jpg" *ngIf="myRecpie.CodeKatgory==5;else n6" />
+            <ng-template #n6>
+              <img class="ikon" src="../../assets/ikons/desert.jpg">
+            </ng-template>
+          </ng-template>
+        </ng-template>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>
+</a>
+</div>
+
+<div *ngIf="!okey()">
+  <div class="card" style="width: 18rem;">
+    <img src={{myRecpie.UrlImg}} />
+    <div class="card-body">
+      <h5 class="card-title" id="head">{{myRecpie.NameRecipe}} </h5>
+      <p class="card-text">{{myRecpie.OrderTime|time}}</p>
+      <div id="allStars">
+        <img *ngIf="myRecpie.Label>=1" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img1">
+        <img *ngIf="myRecpie.Label>=2" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img2">
+        <img *ngIf="myRecpie.Label>=3" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img3">
+        <img *ngIf="myRecpie.Label>=4" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img4">
+        <img *ngIf="myRecpie.Label>=5" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img5">
+      </div>
+    </div>
+    <div>
+      <img class="ikon" src="../../assets/ikons/meet.jpg" *ngIf="myRecpie.CodeKatgory==1;else n2" />
+      <ng-template #n2>
+        <img class="ikon" src="../../assets/ikons/fish.jpg" *ngIf="myRecpie.CodeKatgory==2;else n3" />
+        <ng-template #n3>
+          <img class="ikon" src="../../assets/ikons/child.jpg" *ngIf="myRecpie.CodeKatgory==3;else n4" />
+          <ng-template #n4>
+            <img class="ikon" src="../../assets/ikons/ten.jpg" *ngIf="myRecpie.CodeKatgory==4;else n5" />
+            <ng-template #n5>
+              <img class="ikon" src="../../assets/ikons/cake.jpg" *ngIf="myRecpie.CodeKatgory==5;else n6" />
+              <ng-template #n6>
+                <img class="ikon" src="../../assets/ikons/desert.jpg">
+              </ng-template>
+            </ng-template>
+          </ng-template>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>

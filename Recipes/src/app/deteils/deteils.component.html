@@ -1,0 +1,37 @@
+
+<div id="all">
+    <div id="title">
+    <h1 id="head">{{deteilesOfRecipe.NameRecipe}}</h1></div>
+    <img src="{{deteilesOfRecipe.UrlImg}}" id="center" />
+    <p>הועלה בתאריך:{{deteilesOfRecipe.DateAdd|date}}</p>
+    <p>זמן הכנה:{{deteilesOfRecipe.OrderTime|time}}</p>
+    <p *ngIf="deteilesOfRecipe.Label==1">דרגת קושי: קל</p>
+    <p *ngIf="deteilesOfRecipe.Label==2">דרגת קושי: בסיסי</p>
+    <p *ngIf="deteilesOfRecipe.Label==3">דרגת קושי: בינוני</p>
+    <p *ngIf="deteilesOfRecipe.Label==4">דרגת קושי: קשה</p>
+    <p *ngIf="deteilesOfRecipe.Label==5">דרגת קושי: מאתגר</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==1">בשרי</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==2">דגים</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==3">ילדים</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==4">מתכונים בעשר דקות</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==5"> מאפים</p>
+    <p *ngIf="deteilesOfRecipe.CodeKatgory==6">קינוחים</p>
+    <div id="Ingredients">
+        <h1 class="smallTitle">חומרים</h1>
+    <ul>
+        <li *ngFor="let x of deteilesOfRecipe.Ingredients">
+            <img src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="logo">
+            {{x}}
+        </li>
+    </ul>
+</div>
+
+<div id="Preparation">
+    <h1 class="smallTitle">הוראות הכנה</h1>
+    <ul>
+<li *ngFor="let x of deteilesOfRecipe.Preparation">
+    <img src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="logo">
+    {{x}}</li>
+    </ul>
+    </div>
+</div>

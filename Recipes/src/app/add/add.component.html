@@ -1,0 +1,56 @@
+<div id="body">
+    <form #myForm="ngForm">
+        <div>
+
+            <input type="text" placeholder="שם מתכון" [(ngModel)]="emptyRecipe.NameRecipe" name="name" id="name">
+        </div>
+        <div>
+            <select [(ngModel)]="emptyRecipe.CodeKatgory" name="kategory" id="kaegory">
+                <option *ngFor="let x of kategory" [value]="x.Code">{{x.Name}}</option>
+            </select>
+        </div>
+        <div>
+            <input type="number" placeholder="משך הכנה" [(ngModel)]="emptyRecipe.OrderTime" name="time" id="name">
+        </div>
+        <div id="allStars">
+            <input type="image" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img1"
+                (click)="labelK('img1')">
+            <input type="image" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img2"
+                (click)="labelK('img2')">
+            <input type="image" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img3"
+                (click)="labelK('img3')">
+            <input type="image" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img4"
+                (click)="labelK('img4')">
+            <input type="image" src="../../assets/טבח-לוגו-קליפ-ארט-וקטורי_csp14520617.jpg" id="img5"
+                (click)="labelK('img5')">
+        </div>
+
+        <div>
+            <input type="button" value="{{emptyRecipeLabel}}" id="label">
+        </div>
+
+        <div>
+            <input type="date" [(ngModel)]="emptyRecipe.DateAdd" name="date" id="date">
+        </div>
+        <div>
+            <label id="label2">:חומרים</label>
+            <div *ngFor="let x of emptyRecipe.Ingredients;let i=index;trackBy:trackByIdIngredients">
+                <input type="text" (keyup)="checkArrIngredients()" [(ngModel)]="emptyRecipe.Ingredients[i]"
+                    name="ing{{i}}" id="ing" />
+            </div>
+        </div>
+        <div>
+            <label id="label1">:הוראות הכנה</label>
+            <div *ngFor="let x of emptyRecipe.Preparation;let i=index;trackBy:trackByIdPreparation">
+                <input type="text" (keyup)="checkArrPreparation()" [(ngModel)]="emptyRecipe.Preparation[i]"
+                    name="ing{{i}}" id="pre" />
+            </div>
+        </div>
+        <div>
+            <input type="text" placeholder="ניתוב לתמונה" [(ngModel)]="emptyRecipe.UrlImg" name="image" id="img">
+        </div>
+        <div>
+            <input type="button" (click)="addR(myForm)" value="הוסף" id="add" />
+        </div>
+    </form>
+</div>

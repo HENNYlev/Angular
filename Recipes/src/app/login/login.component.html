@@ -1,0 +1,53 @@
+<div id="h1">
+    <h1>השאר את פרטיך</h1>
+</div>
+<div id="form">
+    <form #myForm="ngForm" (ngSubmit)="add(myForm)">
+    
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label>Enter your email</mat-label>
+                <input matInput placeholder="yummi@example.com" [(ngModel)]="newUser.Mail" required
+                    pattern="^[\w.%+\-]+@[\w.\-]+\.[A-Za-z]{2,3}$" name="mail" #a="ngModel">
+            </mat-form-field>
+            <div class="errors" *ngIf="a.touched&&a.errors">
+                מייל חייב להיות בפורמט המתאים
+            </div>
+        </div>
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your address</mat-label>
+                    <input matInput placeholder="כתובת" [(ngModel)]="newUser.Address" required name="address"
+                        #b="ngModel">
+                    <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+                </mat-form-field>
+                <div class="errors" *ngIf="b.touched&&b.errors">השדות המסומנים בכוכב הם שדות חובה</div>
+            </div>
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'"[(ngModel)]="newUser.Psw"  required minlength="8" name="psa" #c="ngModel">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+         
+                <div class="errors" *ngIf="c.touched&&c.errors?.minlength">סיסמא חייבת להיות באורך של 8 תווים</div>
+            </div>
+            
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{existUser}}</mat-label>
+                    <input matInput placeholder="שם" [(ngModel)]="newUser.Name" required name="name" #d="ngModel" >
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                </mat-form-field>  
+            </div>
+            <div class="errors" *ngIf="d.touched&&d.errors">השדות המסומנים בכוכבית הם שדות חובה</div>
+            <div>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!myForm.valid">הירשם</button>
+
+            </div>
+ </form>
+</div>
+

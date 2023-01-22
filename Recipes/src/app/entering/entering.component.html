@@ -1,0 +1,29 @@
+<div id="form">
+<form #myForm="ngForm"  (ngSubmit)="enter(myForm)">
+<div class="example-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'"[(ngModel)]="cuurentUser.Psw"  required minlength="8" name="psa" #c="ngModel">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <div class="errors" *ngIf="c.touched&&c.errors?.minlength">סיסמא חייבת להיות באורך של 8 תווים</div>
+</div>
+
+<div class="example-container">
+    <mat-form-field appearance="fill">
+        <mat-label>Enter your name</mat-label>
+        <input matInput placeholder="שם" [(ngModel)]="cuurentUser.Name" required name="name" #d="ngModel" >
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>  
+</div>
+<div class="errors" *ngIf="d.touched&&d.errors">השדות המסומנים בכוכבית הם שדות חובה</div>
+<div>
+    <button type="submit" mat-raised-button color="primary" [disabled]="!myForm.valid">הכנס</button>
+
+</div>
+</form>
+</div>

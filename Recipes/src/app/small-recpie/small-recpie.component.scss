@@ -1,0 +1,45 @@
+
+#allStars{
+   display: flex;
+   flex-direction: row;
+   padding-left: 20%;
+}
+#img1{
+    margin-top:6%;
+    width: 10%;
+    height: 10%;
+    
+}
+#img2{
+    margin-top: 5%;
+    width: 12%;
+    height: 12%;
+}
+#img3{
+    margin-top: 3%;
+    width: 15%;
+    height: 15%;
+}
+#img4{
+    margin-top:2%;
+    width: 17%;
+    height: 17%;
+}
+#img5{
+    width: 20%;
+    height: 20%;
+}
+.card{
+    text-align: center;
+}
+.ikon{
+    width: 100px;
+    height:50px;
+    text-align: right;
+}
+#head{
+    font-size: 20px;
+}
+p{
+    direction: rtl;
+}
